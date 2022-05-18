@@ -1,7 +1,6 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
-import CameraIcon from '@mui/icons-material/PhotoCamera';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardActionArea from '@mui/material/CardActionArea';
@@ -16,6 +15,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import NewYorkTime from './img/img1.png';
 
 function Copyright() {
   return (
@@ -32,7 +32,18 @@ function Copyright() {
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8];
 
-const projects = [];
+const projects = [
+{
+    projectType: "UX", 
+    projectName: "The New York Times",
+    projectDate: "Spring 2020",
+    projectRole: "UX Researcher",
+    projectImg: NewYorkTime,
+    alt: "Imagen of a man wearing a top hat and mogal",
+    ariaLabel: "click to view project" 
+}
+
+];
 
 const theme = createTheme({
     palette: {
@@ -79,8 +90,10 @@ Heres is my code and design work
               spacing={2}
               justifyContent="center"
             >
-              <Button variant="contained">Main call to action</Button>
-              <Button variant="outlined">Secondary action</Button>
+                <Button variant="contained" color="warning" id="UXUI">View All Projects</Button>
+              <Button variant="contained" color="success" id="UXUI">View my UX Projects</Button>
+              <Button variant="contained" id="fsf">View my Code Projects</Button>
+              <Button variant="contained" id="backend" color="secondary">View Other Projects</Button>
             </Stack>
           </Container>
         </Box>
@@ -117,7 +130,54 @@ Heres is my code and design work
             ))}
           </Grid>
         </Container>
- 
+        <Container sx={{ py: 8 }} maxWidth="md">
+          {/* End hero unit */}
+          <Grid container spacing={4}>
+            {projects.map((projects) => (
+              <Grid item key={projects} xs={12} sm={12} md={6}>
+    <Card sx={{ maxWidth: 345 }}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="140"
+          image="/static/images/cards/contemplative-reptile.jpg"
+          alt="green iguana"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Lizard
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            species, ranging across all continents except Antarctica
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button size="small" color="primary">
+          Share
+        </Button>
+      </CardActions>
+    </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+
+
+
+        <Box sx={{ width: 1 }}>
+      <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2}>
+        <Box gridColumn="span 8">
+
+        </Box>
+        <Box gridColumn="span 4">
+          <h2>hello</h2>
+        </Box>
+      </Box>
+    </Box>
+  
+
  
  
  
